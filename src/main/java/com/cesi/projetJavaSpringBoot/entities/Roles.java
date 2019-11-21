@@ -10,8 +10,8 @@ public class Roles {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String libelle;
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="role")
-    private List<Collaborateurs> collaborateurs;
+//    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="role")
+//    private List<Collaborateurs> collaborateurs;
 
     public Roles() {
     }
@@ -35,4 +35,12 @@ public class Roles {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
+//    public List<Collaborateurs> getCollaborateurs() {
+//        return collaborateurs;
+//    }
+//
+//    public void setCollaborateurs(List<Collaborateurs> collaborateurs) {
+//        this.collaborateurs = collaborateurs;
+//    }
 }

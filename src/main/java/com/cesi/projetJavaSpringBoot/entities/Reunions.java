@@ -19,8 +19,8 @@ public class Reunions {
     private List<Collaborateurs> participants;
     @ManyToOne(cascade = CascadeType.ALL)
     private Collaborateurs referant;
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="reunion")
-    private List<Taches> taches;
+//    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="reunion")
+//    private List<Taches> taches;
 
     public Reunions() {
     }
@@ -80,4 +80,28 @@ public class Reunions {
     public void setCompteRendu(String compteRendu) {
         this.compteRendu = compteRendu;
     }
+
+    public List<Collaborateurs> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<Collaborateurs> participants) {
+        this.participants = participants;
+    }
+
+    public Collaborateurs getReferant() {
+        return referant;
+    }
+
+    public void setReferant(Collaborateurs referant) {
+        this.referant = referant;
+    }
+
+//    public List<Taches> getTaches() {
+//        return taches;
+//    }
+//
+//    public void setTaches(List<Taches> taches) {
+//        this.taches = taches;
+//    }
 }

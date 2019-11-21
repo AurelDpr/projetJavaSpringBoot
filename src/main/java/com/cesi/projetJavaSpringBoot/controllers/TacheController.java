@@ -29,7 +29,13 @@ public class TacheController {
     @ApiOperation(value = "Ajouter une tâche")
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
-    Taches addNewTache (@RequestParam String libelle, @RequestParam String description, @RequestParam String dateDebut, @RequestParam String dateFin, @RequestParam int duree) {
+    Taches addNewTache (
+            @RequestParam String libelle,
+            @RequestParam String description,
+            @RequestParam String dateDebut,
+            @RequestParam String dateFin,
+            @RequestParam int duree
+    ) {
             Taches tache = new Taches(libelle,description,dateDebut,dateFin,duree);
             tacheRepository.save(tache);
             return tache;
@@ -40,6 +46,26 @@ public class TacheController {
     public @ResponseBody String deleteTache (@RequestParam Long tacheId) {
         tacheRepository.deleteById(tacheId);
         return "suppression";
+    }
+
+    @ApiOperation(value = "Modifier une tâche")
+    @PatchMapping(path="/update")
+    public @ResponseBody String updateTache (
+            @RequestParam Long id,
+            @RequestParam String libelle,
+            @RequestParam String description,
+            @RequestParam String dateDebut,
+            @RequestParam String dateFin,
+            @RequestParam int duree
+    ) {
+        Taches tacheFromDb = tacheRepository.findById(id).get();
+        tacheFromDb.setLibelle(libelle);
+        tacheFromDb.setDescription(description);
+        tacheFromDb.setDateDebut(dateDebut);
+        tacheFromDb.setDateFin(dateFin);
+        tacheFromDb.setDuree(duree);
+        tacheRepository.save(tacheFromDb);
+        return "update";
     }
 
 }

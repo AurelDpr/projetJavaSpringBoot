@@ -17,10 +17,10 @@ public class Collaborateurs {
     private String mdp;
     @ManyToOne(cascade = CascadeType.ALL)
     private Roles role;
-    @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.ALL, mappedBy="participants")
-    private List<Reunions> reunions;
-    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="collaborateur")
-    private List<Taches> taches;
+//    @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.ALL, mappedBy="participants")
+//    private List<Reunions> reunions;
+//    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="collaborateur")
+//    private List<Taches> taches;
 
     public Collaborateurs() {
         super();
@@ -81,4 +81,28 @@ public class Collaborateurs {
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
+
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+//    public List<Reunions> getReunions() {
+//        return reunions;
+//    }
+//
+//    public void setReunions(List<Reunions> reunions) {
+//        this.reunions = reunions;
+//    }
+//
+//    public List<Taches> getTaches() {
+//        return taches;
+//    }
+//
+//    public void setTaches(List<Taches> taches) {
+//        this.taches = taches;
+//    }
 }

@@ -24,7 +24,13 @@ public class ReunionController {
     @ApiOperation(value = "Ajouter une réunion")
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
-    Reunions addNewReunion (@RequestParam String libelle, @RequestParam String objectif, @RequestParam String date, @RequestParam String lieu, @RequestParam String compteRendu) {
+    Reunions addNewReunion (
+            @RequestParam String libelle,
+            @RequestParam String objectif,
+            @RequestParam String date,
+            @RequestParam String lieu,
+            @RequestParam String compteRendu
+    ) {
         Reunions collaborateur = new Reunions(libelle, objectif, date, lieu, compteRendu);
         reunionRepository.save(collaborateur);
         return collaborateur;

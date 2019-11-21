@@ -87,4 +87,20 @@ public class Taches {
     public void setDuree(int duree) {
         this.duree = duree;
     }
+
+    public Collaborateurs getCollaborateur() {
+        return collaborateur;
+    }
+
+    public void setCollaborateur(Collaborateurs collaborateur) {
+        this.collaborateur = collaborateur;
+    }
+
+    public Reunions getReunion() {
+        return reunion;
+    }
+
+    public void setReunion(Reunions reunion) {
+        this.reunion = reunion;
+    }
 }
