@@ -29,10 +29,10 @@ public class RoleController {
         return role;
     }
 
-//    @ApiOperation(value = "Supprimer un role")
-//    @DeleteMapping(path="/delete")
-//    public @ResponseBody String deleteRole (@RequestParam int roleId) {
-//        roleRepository.delete(roleRepository.findById(roleId));
-//        return "suppression";
-//    }
+    @ApiOperation(value = "Supprimer un role")
+    @DeleteMapping(path="/delete")
+    public @ResponseBody String deleteRole (@RequestParam Long roleId) {
+        roleRepository.deleteById(roleId);
+        return "suppression";
+    }
 }

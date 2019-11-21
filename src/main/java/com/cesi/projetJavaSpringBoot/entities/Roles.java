@@ -8,7 +8,7 @@ import java.util.List;
 public class Roles {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String libelle;
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="role")
     private List<Collaborateurs> collaborateurs;
@@ -24,7 +24,7 @@ public class Roles {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
