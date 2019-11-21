@@ -13,6 +13,9 @@ public class Roles {
     @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="role")
     private List<Collaborateurs> collaborateurs;
 
+    public Roles() {
+    }
+
     public Roles(String libelle) {
         this.libelle = libelle;
     }
