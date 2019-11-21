@@ -8,11 +8,11 @@ import java.util.Date;
 public class Taches {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String libelle;
     private String description;
-    private Date dateDebut;
-    private Date dateFin;
+    private String dateDebut;
+    private String dateFin;
     private int duree;
     @ManyToOne(cascade = CascadeType.ALL)
     private Collaborateurs collaborateur;
@@ -22,11 +22,29 @@ public class Taches {
     public Taches() {
     }
 
-    public long getId() {
+    public Taches(String libelle, String description, String dateDebut, String dateFin, int duree, Collaborateurs collaborateur, Reunions reunion) {
+        this.libelle = libelle;
+        this.description = description;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.duree = duree;
+        this.collaborateur = collaborateur;
+        this.reunion = reunion;
+    }
+
+    public Taches(String libelle, String description, String dateDebut, String dateFin, int duree) {
+        this.libelle = libelle;
+        this.description = description;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.duree = duree;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,19 +64,19 @@ public class Taches {
         this.description = description;
     }
 
-    public Date getDateDebut() {
+    public String getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(String dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 

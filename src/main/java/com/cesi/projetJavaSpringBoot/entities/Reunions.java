@@ -12,7 +12,7 @@ public class Reunions {
     private long id;
     private String libelle;
     private String objectif;
-    private Date date;
+    private String date;
     private String lieu;
     private String compteRendu;
     @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.ALL)
@@ -49,11 +49,11 @@ public class Reunions {
         this.objectif = objectif;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
