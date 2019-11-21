@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api( description="API pour les opérations CRUD sur les reunions.")
+@Api( description="API pour les opérations CRUD sur les réunions.")
 @RestController
 @RequestMapping(path="/reunion")
 public class ReunionController {
@@ -15,13 +15,13 @@ public class ReunionController {
     @Autowired
     private ReunionRepository reunionRepository;
 
-    @ApiOperation(value = "Récupere tout les reunions")
+    @ApiOperation(value = "Récuperer toutes les réunions")
     @GetMapping(path="/read")
     public Iterable<Reunions> getAllCollaborateurs() {
         return reunionRepository.findAll();
     }
 
-    @ApiOperation(value = "Ajouter une reunion")
+    @ApiOperation(value = "Ajouter une réunion")
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
     Reunions addNewReunion (@RequestParam String libelle, @RequestParam String objectif, @RequestParam String date, @RequestParam String lieu, @RequestParam String compteRendu) {
@@ -30,7 +30,7 @@ public class ReunionController {
         return collaborateur;
     }
 
-    @ApiOperation(value = "Supprimer une reunion")
+    @ApiOperation(value = "Supprimer une réunion")
     @DeleteMapping(path="/delete")
     public @ResponseBody String deleteReunion (@RequestParam Long reunionId) {
         reunionRepository.deleteById(reunionId);

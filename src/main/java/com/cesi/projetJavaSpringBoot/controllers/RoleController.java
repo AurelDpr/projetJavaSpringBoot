@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api( description="API pour les opérations CRUD sur les roles.")
+@Api( description="API pour les opérations CRUD sur les rôles.")
 @RestController
 @RequestMapping(path="/role")
 public class RoleController {
@@ -15,13 +15,13 @@ public class RoleController {
     @Autowired
     private RoleRepository roleRepository;
 
-    @ApiOperation(value = "Récupere tout les roles")
+    @ApiOperation(value = "Récuperer tout les rôles")
     @GetMapping(path="/read")
     public Iterable<Roles> getAllRoles() {
         return roleRepository.findAll();
     }
 
-    @ApiOperation(value = "Ajouter un role")
+    @ApiOperation(value = "Ajouter un rôle")
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody Roles addNewRole (@RequestParam String libelle) {
         Roles role = new Roles(libelle);
@@ -29,14 +29,14 @@ public class RoleController {
         return role;
     }
 
-    @ApiOperation(value = "Supprimer un role")
+    @ApiOperation(value = "Supprimer un rôle")
     @DeleteMapping(path="/delete")
     public @ResponseBody String deleteRole (@RequestParam Long roleId) {
         roleRepository.deleteById(roleId);
         return "suppression";
     }
 
-    @ApiOperation(value = "Modifier un role")
+    @ApiOperation(value = "Modifier un rôle")
     @PatchMapping(path="/update")
     public @ResponseBody String updateRole (@RequestParam Long id, @RequestParam String libelle) {
         Roles roleFromDb = roleRepository.findById(id).get();

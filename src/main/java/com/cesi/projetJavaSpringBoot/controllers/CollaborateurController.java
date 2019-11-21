@@ -17,7 +17,7 @@ public class CollaborateurController {
     @Autowired
     private CollaborateurRepository collaborateurRepository;
 
-    @ApiOperation(value = "Récupere tout les collaborateurs")
+    @ApiOperation(value = "Récuperer tout les collaborateurs")
     @GetMapping(path="/read")
     public Iterable<Collaborateurs> getAllCollaborateurs() {
         return collaborateurRepository.findAll();

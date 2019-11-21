@@ -13,20 +13,20 @@ package com.cesi.projetJavaSpringBoot.controllers;
         import java.text.SimpleDateFormat;
         import java.util.Date;
 
-@Api( description="API pour les opérations CRUD sur les roles.")
+@Api( description="API pour les opérations CRUD sur les tâches.")
 @RestController
 @RequestMapping(path="/taches")
 public class TacheController {
     @Autowired
     private TacheRepository tacheRepository;
 
-    @ApiOperation(value = "Récupere toutes les tâches")
+    @ApiOperation(value = "Récuperer toutes les tâches")
     @GetMapping(path="/read")
     public Iterable<Taches> getAllTaches() {
         return tacheRepository.findAll();
     }
 
-    @ApiOperation(value = "Ajouter une tache")
+    @ApiOperation(value = "Ajouter une tâche")
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
     Taches addNewTache (@RequestParam String libelle, @RequestParam String description, @RequestParam String dateDebut, @RequestParam String dateFin, @RequestParam int duree) {
@@ -35,7 +35,7 @@ public class TacheController {
             return tache;
     }
 
-    @ApiOperation(value = "Supprimer une tache")
+    @ApiOperation(value = "Supprimer une tâche")
     @DeleteMapping(path="/delete")
     public @ResponseBody String deleteTache (@RequestParam Long tacheId) {
         tacheRepository.deleteById(tacheId);
