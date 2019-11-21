@@ -11,7 +11,7 @@ public class Collaborateurs {
     private long id;
     private String nom;
     private String prenom;
-    private Date datenaissance;
+    private Date dateNaissance;
     private String email;
     private String mdp;
 
@@ -43,12 +43,12 @@ public class Collaborateurs {
         this.prenom = prenom;
     }
 
-    public Date getDatenaissance() {
-        return datenaissance;
+    public Date getDateNaissance() {
+        return dateNaissance;
     }
 
-    public void setDatenaissance(Date datenaissance) {
-        this.datenaissance = datenaissance;
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 
     public String getEmail() {
