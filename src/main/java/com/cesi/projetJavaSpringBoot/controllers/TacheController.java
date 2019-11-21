@@ -35,11 +35,11 @@ public class TacheController {
             return tache;
     }
 
-//    @ApiOperation(value = "Supprimer un role")
-//    @DeleteMapping(path="/delete")
-//    public @ResponseBody String deleteRole (@RequestParam int roleId) {
-//        roleRepository.delete(roleRepository.findById(roleId));
-//        return "suppression";
-//    }
+    @ApiOperation(value = "Supprimer une tache")
+    @DeleteMapping(path="/delete")
+    public @ResponseBody String deleteTache (@RequestParam Long tacheId) {
+        tacheRepository.deleteById(tacheId);
+        return "suppression";
+    }
 
 }
