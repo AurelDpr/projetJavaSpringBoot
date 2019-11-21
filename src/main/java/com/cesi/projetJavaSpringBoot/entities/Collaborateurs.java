@@ -9,10 +9,10 @@ import java.util.List;
 public class Collaborateurs {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String nom;
     private String prenom;
-    private Date dateNaissance;
+    private String dateNaissance;
     private String email;
     private String mdp;
     @ManyToOne(cascade = CascadeType.ALL)
@@ -26,11 +26,19 @@ public class Collaborateurs {
         super();
     }
 
-    public long getId() {
+    public Collaborateurs(String nom, String prenom, String dateNaissance, String email, String mdp) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.email = email;
+        this.mdp = mdp;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,11 +58,11 @@ public class Collaborateurs {
         this.prenom = prenom;
     }
 
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
-    public void setDateNaissance(Date dateNaissance) {
+    public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
