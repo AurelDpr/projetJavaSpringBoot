@@ -20,7 +20,7 @@ public class Roles {
         this.libelle = libelle;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
