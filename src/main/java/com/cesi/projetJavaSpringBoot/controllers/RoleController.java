@@ -35,4 +35,15 @@ public class RoleController {
         roleRepository.deleteById(roleId);
         return "suppression";
     }
+
+    @ApiOperation(value = "Modifier un role")
+    @PatchMapping(path="/update")
+    public @ResponseBody String updateRole (@RequestParam Long id, @RequestParam String libelle) {
+        Roles roleFromDb = roleRepository.findById(id).get();
+        roleFromDb.setLibelle(libelle);
+        roleRepository.save(roleFromDb);
+        return "update";
+    }
+
+
 }
