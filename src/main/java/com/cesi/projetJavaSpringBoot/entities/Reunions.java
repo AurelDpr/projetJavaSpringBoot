@@ -9,7 +9,7 @@ import java.util.List;
 public class Reunions {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String libelle;
     private String objectif;
     private String date;
@@ -25,11 +25,19 @@ public class Reunions {
     public Reunions() {
     }
 
-    public long getId() {
+    public Reunions(String libelle, String objectif, String date, String lieu, String compteRendu) {
+        this.libelle = libelle;
+        this.objectif = objectif;
+        this.date = date;
+        this.lieu = lieu;
+        this.compteRendu = compteRendu;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
