@@ -16,22 +16,23 @@ public class RoleController {
     private RoleRepository roleRepository;
 
     @ApiOperation(value = "Récupere tout les roles")
-    @GetMapping(path="/all")
+    @GetMapping(path="/read")
     public Iterable<Roles> getAllRoles() {
-        // This returns a JSON or XML with the users
-//        System.out.println("fdsfsd");
-//        System.out.println(roleRepository.findAll());
         return roleRepository.findAll();
     }
 
     @ApiOperation(value = "Ajouter un role")
-    @PostMapping(path="/add") // Map ONLY POST Requests
+    @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody Roles addNewRole (@RequestParam String libelle) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
         Roles role = new Roles(libelle);
         roleRepository.save(role);
         return role;
     }
+
+//    @ApiOperation(value = "Supprimer un role")
+//    @DeleteMapping(path="/delete")
+//    public @ResponseBody String deleteRole (@RequestParam int roleId) {
+//        roleRepository.delete(roleRepository.findById(roleId));
+//        return "suppression";
+//    }
 }
