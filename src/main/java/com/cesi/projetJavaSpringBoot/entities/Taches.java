@@ -14,6 +14,10 @@ public class Taches {
     private Date dateDebut;
     private Date dateFin;
     private int duree;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Collaborateurs collaborateur;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Reunions reunion;
 
     public Taches() {
     }

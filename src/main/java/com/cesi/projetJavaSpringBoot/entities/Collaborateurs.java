@@ -2,6 +2,7 @@ package com.cesi.projetJavaSpringBoot.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "collaborateur")
@@ -14,6 +15,12 @@ public class Collaborateurs {
     private Date dateNaissance;
     private String email;
     private String mdp;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Roles role;
+    @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.ALL, mappedBy="participants")
+    private List<Reunions> reunions;
+    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="collaborateur")
+    private List<Taches> taches;
 
     public Collaborateurs() {
         super();
