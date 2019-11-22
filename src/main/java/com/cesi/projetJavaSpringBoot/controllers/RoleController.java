@@ -16,12 +16,14 @@ public class RoleController {
     private RoleRepository roleRepository;
 
     @ApiOperation(value = "Récuperer tout les rôles")
+    @CrossOrigin
     @GetMapping(path="/read")
     public Iterable<Roles> getAllRoles() {
         return roleRepository.findAll();
     }
 
     @ApiOperation(value = "Ajouter un rôle")
+    @CrossOrigin
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody Roles addNewRole (@RequestParam String libelle) {
         Roles role = new Roles(libelle);
@@ -30,6 +32,7 @@ public class RoleController {
     }
 
     @ApiOperation(value = "Supprimer un rôle")
+    @CrossOrigin
     @DeleteMapping(path="/delete")
     public @ResponseBody String deleteRole (@RequestParam Long roleId) {
         roleRepository.deleteById(roleId);
@@ -37,6 +40,7 @@ public class RoleController {
     }
 
     @ApiOperation(value = "Modifier un rôle")
+    @CrossOrigin
     @PatchMapping(path="/update")
     public @ResponseBody String updateRole (@RequestParam Long id, @RequestParam String libelle) {
         Roles roleFromDb = roleRepository.findById(id).get();

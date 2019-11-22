@@ -15,7 +15,7 @@ public class Collaborateurs {
     private String dateNaissance;
     private String email;
     private String mdp;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Roles role;
 //    @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.ALL, mappedBy="participants")
 //    private List<Reunions> reunions;
@@ -26,12 +26,13 @@ public class Collaborateurs {
         super();
     }
 
-    public Collaborateurs(String nom, String prenom, String dateNaissance, String email, String mdp) {
+    public Collaborateurs(String nom, String prenom, String dateNaissance, String email, String mdp, Roles role) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.email = email;
         this.mdp = mdp;
+        this.role = role;
     }
 
     public Long getId() {

@@ -16,12 +16,14 @@ public class ReunionController {
     private ReunionRepository reunionRepository;
 
     @ApiOperation(value = "Récuperer toutes les réunions")
+    @CrossOrigin
     @GetMapping(path="/read")
     public Iterable<Reunions> getAllCollaborateurs() {
         return reunionRepository.findAll();
     }
 
     @ApiOperation(value = "Ajouter une réunion")
+    @CrossOrigin
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
     Reunions addNewReunion (
@@ -37,6 +39,7 @@ public class ReunionController {
     }
 
     @ApiOperation(value = "Supprimer une réunion")
+    @CrossOrigin
     @DeleteMapping(path="/delete")
     public @ResponseBody String deleteReunion (@RequestParam Long reunionId) {
         reunionRepository.deleteById(reunionId);

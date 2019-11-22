@@ -16,20 +16,20 @@ public class Taches {
     private int duree;
     @ManyToOne(cascade = CascadeType.ALL)
     private Collaborateurs collaborateur;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Reunions reunion;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Reunions reunion;
 
     public Taches() {
     }
 
-    public Taches(String libelle, String description, String dateDebut, String dateFin, int duree, Collaborateurs collaborateur, Reunions reunion) {
+    public Taches(String libelle, String description, String dateDebut, String dateFin, int duree, Collaborateurs collaborateur/*, Reunions reunion*/) {
         this.libelle = libelle;
         this.description = description;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.duree = duree;
         this.collaborateur = collaborateur;
-        this.reunion = reunion;
+//        this.reunion = reunion;
     }
 
     public Taches(String libelle, String description, String dateDebut, String dateFin, int duree) {
@@ -96,11 +96,11 @@ public class Taches {
         this.collaborateur = collaborateur;
     }
 
-    public Reunions getReunion() {
-        return reunion;
-    }
-
-    public void setReunion(Reunions reunion) {
-        this.reunion = reunion;
-    }
+//    public Reunions getReunion() {
+//        return reunion;
+//    }
+//
+//    public void setReunion(Reunions reunion) {
+//        this.reunion = reunion;
+//    }
 }

@@ -1,7 +1,7 @@
 package com.cesi.projetJavaSpringBoot.entities;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "role")
@@ -10,8 +10,8 @@ public class Roles {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String libelle;
-//    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="role")
-//    private List<Collaborateurs> collaborateurs;
+//    @OneToMany(mappedBy="role")
+//    private Collection<Collaborateurs> collaborateurs;
 
     public Roles() {
     }
@@ -36,11 +36,11 @@ public class Roles {
         this.libelle = libelle;
     }
 
-//    public List<Collaborateurs> getCollaborateurs() {
+//    public Collection<Collaborateurs> getCollaborateurs() {
 //        return collaborateurs;
 //    }
 //
-//    public void setCollaborateurs(List<Collaborateurs> collaborateurs) {
+//    public void setCollaborateurs(Collection<Collaborateurs> collaborateurs) {
 //        this.collaborateurs = collaborateurs;
 //    }
 }

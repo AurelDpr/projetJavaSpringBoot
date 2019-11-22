@@ -15,18 +15,20 @@ package com.cesi.projetJavaSpringBoot.controllers;
 
 @Api( description="API pour les opérations CRUD sur les tâches.")
 @RestController
-@RequestMapping(path="/taches")
+@RequestMapping(path="/tache")
 public class TacheController {
     @Autowired
     private TacheRepository tacheRepository;
 
     @ApiOperation(value = "Récuperer toutes les tâches")
+    @CrossOrigin
     @GetMapping(path="/read")
     public Iterable<Taches> getAllTaches() {
         return tacheRepository.findAll();
     }
 
     @ApiOperation(value = "Ajouter une tâche")
+    @CrossOrigin
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
     Taches addNewTache (
@@ -42,6 +44,7 @@ public class TacheController {
     }
 
     @ApiOperation(value = "Supprimer une tâche")
+    @CrossOrigin
     @DeleteMapping(path="/delete")
     public @ResponseBody String deleteTache (@RequestParam Long tacheId) {
         tacheRepository.deleteById(tacheId);
@@ -49,6 +52,7 @@ public class TacheController {
     }
 
     @ApiOperation(value = "Modifier une tâche")
+    @CrossOrigin
     @PatchMapping(path="/update")
     public @ResponseBody String updateTache (
             @RequestParam Long id,

@@ -18,34 +18,40 @@ public class CollaborateurController {
     private CollaborateurRepository collaborateurRepository;
 
     @ApiOperation(value = "Récuperer tout les collaborateurs")
+    @CrossOrigin
     @GetMapping(path="/read")
     public Iterable<Collaborateurs> getAllCollaborateurs() {
         return collaborateurRepository.findAll();
     }
 
     @ApiOperation(value = "Ajouter un collaborateur")
-    @PostMapping(path="/create") // Map ONLY POST Requests
+    @CrossOrigin
+    @PostMapping(path="/create")
     public @ResponseBody
-    Collaborateurs addNewCollaborateur (
-            @RequestParam String nom,
-            @RequestParam String prenom,
-            @RequestParam String dateNaissance,
-            @RequestParam String mdp,
-            @RequestParam String email
-    ) {
-        Collaborateurs collaborateur = new Collaborateurs(nom, prenom, dateNaissance, mdp, email);
+    Collaborateurs addNewCollaborateur (@RequestBody Collaborateurs pCollaborateur) {
+        System.out.println('t');
+        Collaborateurs collaborateur = new Collaborateurs(
+                pCollaborateur.getNom(),
+                pCollaborateur.getPrenom(),
+                pCollaborateur.getDateNaissance(),
+                pCollaborateur.getMdp(),
+                pCollaborateur.getEmail(),
+                pCollaborateur.getRole()
+        );
         collaborateurRepository.save(collaborateur);
         return collaborateur;
     }
 
     @ApiOperation(value = "Supprimer un collaborateur")
-    @DeleteMapping(path="/delete")
-    public @ResponseBody String deleteCollaborateur (@RequestParam Long collaborateurId) {
-        collaborateurRepository.deleteById(collaborateurId);
+    @CrossOrigin
+    @DeleteMapping(path="/delete/{id}")
+    public @ResponseBody String deleteCollaborateur (@PathVariable Long id) {
+        collaborateurRepository.deleteById(id);
         return "suppression";
     }
 
     @ApiOperation(value = "Modifier un collaborateur")
+    @CrossOrigin
     @PatchMapping(path="/update")
     public @ResponseBody String updateCollaborateur (
             @RequestParam Long id,

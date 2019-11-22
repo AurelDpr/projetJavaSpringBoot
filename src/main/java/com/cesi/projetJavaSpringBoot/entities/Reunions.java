@@ -19,8 +19,8 @@ public class Reunions {
     private List<Collaborateurs> participants;
     @ManyToOne(cascade = CascadeType.ALL)
     private Collaborateurs referant;
-//    @OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="reunion")
-//    private List<Taches> taches;
+    @OneToMany
+    private List<Taches> taches;
 
     public Reunions() {
     }
@@ -97,11 +97,11 @@ public class Reunions {
         this.referant = referant;
     }
 
-//    public List<Taches> getTaches() {
-//        return taches;
-//    }
-//
-//    public void setTaches(List<Taches> taches) {
-//        this.taches = taches;
-//    }
+    public List<Taches> getTaches() {
+        return taches;
+    }
+
+    public void setTaches(List<Taches> taches) {
+        this.taches = taches;
+    }
 }
