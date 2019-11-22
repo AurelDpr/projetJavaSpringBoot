@@ -15,9 +15,9 @@ public class Reunions {
     private String date;
     private String lieu;
     private String compteRendu;
-    @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY , cascade=CascadeType.MERGE)
     private List<Collaborateurs> participants;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Collaborateurs referant;
     @OneToMany
     private List<Taches> taches;
@@ -25,12 +25,24 @@ public class Reunions {
     public Reunions() {
     }
 
-    public Reunions(String libelle, String objectif, String date, String lieu, String compteRendu) {
+    public Reunions(
+            String libelle,
+            String objectif,
+            String date,
+            String lieu,
+            String compteRendu,
+            List<Collaborateurs> participants,
+            Collaborateurs referant,
+            List<Taches> taches
+    ) {
         this.libelle = libelle;
         this.objectif = objectif;
         this.date = date;
         this.lieu = lieu;
         this.compteRendu = compteRendu;
+        this.participants = participants;
+        this.referant = referant;
+        this.taches = taches;
     }
 
     public Long getId() {

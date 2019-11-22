@@ -18,7 +18,7 @@ public class ReunionController {
     @ApiOperation(value = "Récuperer toutes les réunions")
     @CrossOrigin
     @GetMapping(path="/read")
-    public Iterable<Reunions> getAllCollaborateurs() {
+    public Iterable<Reunions> getAllReunions() {
         return reunionRepository.findAll();
     }
 
@@ -27,15 +27,19 @@ public class ReunionController {
     @PostMapping(path="/create") // Map ONLY POST Requests
     public @ResponseBody
     Reunions addNewReunion (
-            @RequestParam String libelle,
-            @RequestParam String objectif,
-            @RequestParam String date,
-            @RequestParam String lieu,
-            @RequestParam String compteRendu
+            @RequestBody Reunions pReunion
     ) {
-        Reunions collaborateur = new Reunions(libelle, objectif, date, lieu, compteRendu);
-        reunionRepository.save(collaborateur);
-        return collaborateur;
+        Reunions reunion = new Reunions(
+                pReunion.getLibelle(),
+                pReunion.getObjectif(),
+                pReunion.getDate(),
+                pReunion.getCompteRendu(),
+                pReunion.getLieu(),
+                pReunion.getParticipants(),
+                pReunion.getReferant(),
+                pReunion.getTaches());
+        reunionRepository.save(reunion);
+        return reunion;
     }
 
     @ApiOperation(value = "Supprimer une réunion")
